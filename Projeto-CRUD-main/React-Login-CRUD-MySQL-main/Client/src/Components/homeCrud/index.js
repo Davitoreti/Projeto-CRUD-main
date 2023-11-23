@@ -11,10 +11,10 @@ export default function HomeCrud() {
   const [values, setValues] = useState();
   const [listGames, setListGames] = useState();
 
-  function handleChangeValues(name, value) {
+  function handleChangeValues(nome, value) {
     setValues((prevValue) => ({
       ...prevValue,
-      [name]: value,
+      [nome]: value,
     }));
   };
 
@@ -29,7 +29,7 @@ export default function HomeCrud() {
   const handleClickButton = () => {
     console.log(values)
     Axios.post("http://localhost:3001/insert", {
-      name: values.name,
+      nome: values.nome,
       idade: values.idade,
       localizacao: values.localizacao,
     }).then((response) => {
@@ -91,7 +91,7 @@ export default function HomeCrud() {
       <div className="inserts">
         <input
           type="text"
-          name="name"
+          name="nome"
           placeholder="Nome"
           className="form-control produto"
           onChange={(event) => handleChangeValues(event.target.name, event.target.value)}
@@ -132,7 +132,7 @@ export default function HomeCrud() {
               listCard={listGames}
               setListCard={setListGames}
               id={value.idmoradores}
-              name={value.name}
+              nome={value.nome}
               idade={value.idade}
               localizacao={value.localizacao} />
           );

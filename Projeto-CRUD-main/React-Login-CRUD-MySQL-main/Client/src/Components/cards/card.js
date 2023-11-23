@@ -13,7 +13,7 @@ export default function Card(props) {
   
   const [editValues, setEditValues] = useState({
     id: props.id,
-    name: props.name,
+    nome: props.nome,
     idade: props.idade,
     localizacao: props.localizacao,
   });
@@ -29,7 +29,7 @@ export default function Card(props) {
       <FormDialog
         open={open}
         setOpen={setOpen}
-        name={props.name}
+        nome={props.nome}
         idade={props.idade}
         localizacao={props.localizacao}
         listCard={props.listCard}
@@ -52,7 +52,7 @@ export default function Card(props) {
           <tbody>
             <tr className='linha-prod'>
               <th scope="row">{props.id}</th>
-              <td>{props.name}</td>
+              <td>{props.nome}</td>
               <td>{props.idade}</td>
               <td className='quebra'>{props.localizacao}</td>
               <td className="btn-func">

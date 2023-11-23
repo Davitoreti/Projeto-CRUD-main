@@ -10,7 +10,7 @@ import Axios from "axios";
 export default function FormDialog(props) {
     const [editValues,setEditValues] = useState({
         id: props.id,
-        name: props.name,
+        nome: props.nome,
         idade: props.idade,
         localizacao: props.localizacao,
     });
@@ -18,7 +18,7 @@ export default function FormDialog(props) {
    const handleEditGame = () => {
         Axios.put("http://localhost:3001/edit",{
             id: editValues.id,
-            name: editValues.name,
+            nome: editValues.nome,
             idade: editValues.idade,
             localizacao: editValues.localizacao,
             
@@ -46,9 +46,9 @@ export default function FormDialog(props) {
         <TextField
           autoFocus
           margin="dense"
-          id="name"
+          id="nome"
           label="Nome do jogo"
-          defaultValue={props.name}
+          defaultValue={props.nome}
           onChange={handleChangeValues}
           type="text"
           fullWidth

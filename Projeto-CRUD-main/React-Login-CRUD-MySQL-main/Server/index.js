@@ -77,12 +77,12 @@ app.post("/login", (req, res) => {
 
 // Configs do CRUD
 app.post("/insert", (req, res) => {
-  const { name } = req.body;
+  const { nome } = req.body;
   const { idade } = req.body;
   const { localizacao } = req.body;
-  let SQL = "INSERT INTO moradores (name,idade, localizacao) VALUES (?,?,?)"
+  let SQL = "INSERT INTO moradores (nome,idade,localizacao) VALUES (?,?,?)"
 
-    db.query(SQL,[name,idade,localizacao], (err, result) => {
+    db.query(SQL,[nome,idade,localizacao], (err, result) => {
         console.log(err);
    }) 
 });
@@ -98,7 +98,7 @@ app.get("/get", (req, res) => {
 
 app.get("/getCards/:nome", (req,res) => {
   const nome = req.params.nome;
-  let sql = `SELECT * FROM moradores WHERE name LIKE '${nome}%'`;
+  let sql = `SELECT * FROM moradores WHERE nome LIKE '${nome}%'`;
   db.query(sql, [nome],(err, result) => {
     if (err) {
       console.log(err);
@@ -110,13 +110,13 @@ app.get("/getCards/:nome", (req,res) => {
 
 app.put("/edit", (req,res)=>{
     const { id } = req.body;
-    const { name } = req.body;
+    const { nome } = req.body;
     const { idade } = req.body;
     const { localizacao } = req.body;
 
-    let SQL = "UPDATE moradores SET name= ?, idade= ?, localizacao= ? WHERE idmoradores = ?";
+    let SQL = "UPDATE moradores SET nome= ?, idade= ?, localizacao= ? WHERE idmoradores = ?";
 
-    db.query(SQL, [name, idade, localizacao, id], (err, result) => {
+    db.query(SQL, [nome, idade, localizacao, id], (err, result) => {
         if (err) console.log(err);
         else res.send(result);
     });
