@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import FormDialog from "../dialog/dialog";
 import { FaEdit } from "react-icons/fa";
 import { FaTrashAlt } from "react-icons/fa";
-import '../../Styles/Card_homeCrud.css'
+import '../../Styles/Crud.css'
 import Axios from "axios";
 
-export default function Card(props) {
+export default function Pessoas(props) {
   const [open, setOpen] = React.useState(false);
-  const handleClickCard = () => {
+  const handleClickMorador = () => {
     setOpen(true);
   };
   
@@ -18,7 +18,7 @@ export default function Card(props) {
     localizacao: props.localizacao,
   });
 
-  const handleDeleteGame = () => {
+  const handleDeleteMorador = () => {
     Axios.delete(`http://localhost:3001/delete/${editValues.id}`);
     window.location.reload()
   };
@@ -32,8 +32,8 @@ export default function Card(props) {
         nome={props.nome}
         idade={props.idade}
         localizacao={props.localizacao}
-        listCard={props.listCard}
-        setListCard={props.setListCard}
+        listPessoa={props.listPessoa}
+        setListPessoa={props.setListPessoa}
         id={props.id} 
       />
 
@@ -59,13 +59,13 @@ export default function Card(props) {
                 <button
                   type="button"
                   className="btn btn-primary edit"
-                  onClick={() => handleClickCard()}
+                  onClick={() => handleClickMorador()}
                 >
                   Editar <FaEdit />
                 </button>
                 <button
                   type="button"
-                  onClick={handleDeleteGame}
+                  onClick={handleDeleteMorador}
                   className="btn btn-primary del"
                 >
                   Excluir <FaTrashAlt />

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
-import Card from "../cards/card";
+import Morador from "../moradores/moradores";
 import { FaSearch } from "react-icons/fa";
 import { FaRedo } from 'react-icons/fa';
 import { FaAngleUp } from 'react-icons/fa';
@@ -9,7 +9,7 @@ import axios from "axios";
 
 export default function HomeCrud() {
   const [values, setValues] = useState();
-  const [listGames, setListGames] = useState();
+  const [listMoradores, setListMoradores] = useState();
 
   function handleChangeValues(nome, value) {
     setValues((prevValue) => ({
@@ -20,9 +20,9 @@ export default function HomeCrud() {
 
   function handleClickSearch() {
     const nome = values.pesquisa
-    Axios.get(`http://localhost:3001/getCards/${nome}`)
+    Axios.get(`http://localhost:3001/getMoradores/${nome}`)
       .then(({ data }) => {
-        setListGames(data);
+        setListMoradores(data);
       });
   }
 
@@ -39,7 +39,7 @@ export default function HomeCrud() {
 
   useEffect(() => {
     axios.get('http://localhost:3001/get')
-      .then(({ data }) => setListGames(data))
+      .then(({ data }) => setListMoradores(data))
   }, [values]);
 
   const sair = () => {
@@ -93,7 +93,7 @@ export default function HomeCrud() {
           type="text"
           name="nome"
           placeholder="Nome"
-          className="form-control produto"
+          className="form-control nome"
           onChange={(event) => handleChangeValues(event.target.name, event.target.value)}
         />
 
@@ -101,7 +101,7 @@ export default function HomeCrud() {
           type="text"
           name="idade"
           placeholder="Idade"
-          className="form-control preco"
+          className="form-control idade"
           onChange={(event) => handleChangeValues(event.target.name, event.target.value)}
         />
 
@@ -109,7 +109,7 @@ export default function HomeCrud() {
           type="text"
           name="localizacao"
           placeholder="Localização"
-          className="form-control preco"
+          className="form-control localizacao"
           onChange={(event) => handleChangeValues(event.target.name, event.target.value)}
         />
 
@@ -120,17 +120,17 @@ export default function HomeCrud() {
             window.location.reload()
           }}
         >
-          Cadastrar produto
+          Cadastrar Morador
         </button>
       </div>
 
-      {typeof listGames !== "undefined" &&
-        listGames.map((value) => {
+      {typeof listMoradores !== "undefined" &&
+        listMoradores.map((value) => {
           return (
-            <Card
+            <Morador
               key={value.id}
-              listCard={listGames}
-              setListCard={setListGames}
+              listPessoa={listMoradores}
+              setListPessoa={setListMoradores}
               id={value.idmoradores}
               nome={value.nome}
               idade={value.idade}

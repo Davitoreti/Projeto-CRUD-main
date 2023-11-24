@@ -96,7 +96,7 @@ app.get("/get", (req, res) => {
     });
 });
 
-app.get("/getCards/:nome", (req,res) => {
+app.get("/getMoradores/:nome", (req,res) => {
   const nome = req.params.nome;
   let sql = `SELECT * FROM moradores WHERE nome LIKE '${nome}%'`;
   db.query(sql, [nome],(err, result) => {

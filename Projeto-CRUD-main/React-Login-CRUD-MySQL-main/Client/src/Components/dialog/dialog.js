@@ -15,7 +15,7 @@ export default function FormDialog(props) {
         localizacao: props.localizacao,
     });
 
-   const handleEditGame = () => {
+   const handleEditMorador = () => {
         Axios.put("http://localhost:3001/edit",{
             id: editValues.id,
             nome: editValues.nome,
@@ -47,7 +47,7 @@ export default function FormDialog(props) {
           autoFocus
           margin="dense"
           id="nome"
-          label="Nome do jogo"
+          label="Nome do morador"
           defaultValue={props.nome}
           onChange={handleChangeValues}
           type="text"
@@ -57,7 +57,7 @@ export default function FormDialog(props) {
           autoFocus
           margin="dense"
           id="idade"
-          label="Valor"
+          label="Idade"
           defaultValue={props.idade}
           onChange={handleChangeValues}
           type="text"
@@ -67,7 +67,7 @@ export default function FormDialog(props) {
           autoFocus
           margin="dense"
           id="localizacao"
-          label="Valor"
+          label="Localizacao"
           defaultValue={props.localizacao}
           onChange={handleChangeValues}
           type="text"
@@ -79,7 +79,7 @@ export default function FormDialog(props) {
           handleClose()
         }}>Cancel</Button>
         <Button onClick={()=>{
-          handleEditGame(); 
+          handleEditMorador(); 
         }}>Salvar</Button>
       </DialogActions>
     </Dialog>
