@@ -52,30 +52,31 @@ a:hover {
 }
 
 .card-cadastro h1 {
-  color: white; /* Título verde mais escuro */
+  color: white; 
   font-weight: 800;
   margin: 0;
 }
 
 .form-field {
-  background-color: #94ca88; /* Fundo verde claro */
-  color: black; /* Texto verde mais escuro */
+  background-color: #94ca88;
+  color: black;
+  font-size: 12pt;
 }
 
 .form-group label {
-  color: white; /* Rótulo verde mais escuro */
+  color: white;
 }
 
 .form-error {
-  color: white; /* Texto de erro verde mais escuro */
+  color: white; 
 }
 
 .form-field ::placeholder {
-  color: white; /* Espaço reservado verde mais escuro */
+  color: white; 
 }
 
 .button {
-  background: #64C967; /* Fundo do botão verde mais escuro */
+  background: #64C967;
   color: white;
 }
 

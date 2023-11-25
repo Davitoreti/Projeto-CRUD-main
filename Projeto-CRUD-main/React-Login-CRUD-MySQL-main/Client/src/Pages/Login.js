@@ -1,3 +1,4 @@
+import React from 'react';
 import "../Styles/Login.css"
 import * as yup from "yup";
 import { ErrorMessage, Formik, Form, Field } from "formik";
@@ -5,6 +6,8 @@ import Axios from "axios";
 import { Link } from 'react-router-dom';
 
 function Login({ logado = false }) {
+  const [showPassword, setShowPassword] = React.useState(false);
+
   const handleLogin = (values) => {
     Axios.post("http://localhost:3001/login", {
       email: values.email,
@@ -22,7 +25,6 @@ function Login({ logado = false }) {
 
     });
   };
-
 
   const validationsLogin = yup.object().shape({
     email: yup
@@ -71,7 +73,12 @@ function Login({ logado = false }) {
 
             <div className="form-group">
               <label form="email">Senha</label>
-              <Field name="senha" type='password' className="form-field" placeholder="Senha" />
+              <Field name="senha" type={showPassword ?'text' : 'password'} className="form-field" placeholder="Senha" />
+              <span className="toggle-password"
+              onClick={() => setShowPassword(!showPassword)}
+              >
+              {showPassword ? '👁️' : '👁️'} 
+              </span>
 
               <ErrorMessage
                 component="span"
