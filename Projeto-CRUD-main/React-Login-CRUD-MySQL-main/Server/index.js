@@ -80,9 +80,10 @@ app.post("/insert", (req, res) => {
   const { nome } = req.body;
   const { idade } = req.body;
   const { localizacao } = req.body;
-  let SQL = "INSERT INTO moradores (nome,idade,localizacao) VALUES (?,?,?)"
+  const { informacao } = req.body;
+  let SQL = "INSERT INTO moradores (nome,idade,localizacao,informacao) VALUES (?,?,?,?)"
 
-    db.query(SQL,[nome,idade,localizacao], (err, result) => {
+    db.query(SQL,[nome,idade,localizacao,informacao], (err, result) => {
         console.log(err);
    }) 
 });
@@ -113,10 +114,11 @@ app.put("/edit", (req,res)=>{
     const { nome } = req.body;
     const { idade } = req.body;
     const { localizacao } = req.body;
+    const { informacao } = req.body;
 
-    let SQL = "UPDATE moradores SET nome= ?, idade= ?, localizacao= ? WHERE idmoradores = ?";
+    let SQL = "UPDATE moradores SET nome= ?, idade= ?, localizacao= ?, informacao=? WHERE idmoradores = ?";
 
-    db.query(SQL, [nome, idade, localizacao, id], (err, result) => {
+    db.query(SQL, [nome, idade, localizacao, informacao, id], (err, result) => {
         if (err) console.log(err);
         else res.send(result);
     });

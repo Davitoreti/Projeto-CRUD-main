@@ -32,6 +32,7 @@ export default function HomeCrud() {
       nome: values.nome,
       idade: values.idade,
       localizacao: values.localizacao,
+      informacao: values.informacao,
     }).then((response) => {
       console.log(response);
     });
@@ -113,6 +114,14 @@ export default function HomeCrud() {
           onChange={(event) => handleChangeValues(event.target.name, event.target.value)}
         />
 
+          <input
+          type="text"
+          name="informacao"
+          placeholder="Informação adicional"
+          className="form-control informacao"
+          onChange={(event) => handleChangeValues(event.target.name, event.target.value)}
+        />
+
         <button
           className="btn btn-primary botao"
           onClick={() => {
@@ -134,7 +143,8 @@ export default function HomeCrud() {
               id={value.idmoradores}
               nome={value.nome}
               idade={value.idade}
-              localizacao={value.localizacao} />
+              localizacao={value.localizacao}
+              informacao={value.informacao} />
           );
         })}
 

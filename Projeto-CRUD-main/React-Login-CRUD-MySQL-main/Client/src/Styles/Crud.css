@@ -84,7 +84,7 @@ header img {
 }
 
 .quebra {
-  max-width: 5px;
+  max-width: 1px;
   word-break: break-all;
 }
 
@@ -96,7 +96,7 @@ header img {
 .edit,
 .del {
   max-width: 100%;
-  margin-left: 20px;
+  margin-left: 10px;
   background-color: #55E629;
   border: none;
 }
@@ -108,13 +108,13 @@ header img {
 }
 
 .edit {
-  margin-left: 120%;
+  margin-left: 10%;
   background-color: #55E629;
   border-radius: 20%;
 }
 
 .del {
-  margin-left: 30%;
+  margin-left: 10%;
   background-color: #55E629;
   border-radius: 20%;
 }
@@ -127,22 +127,27 @@ header img {
   }
 
   .botao {
-    width: 30%;
+    width: 50%;
     align-self: center;
+    margin-top: 20px;
+    margin-bottom: -10px;
   }
 
   .nome,
-  .idade, .localizacao {
+  .idade, .localizacao, .informacao {
     max-width: 95%;
     margin-left: 2%;
   }
 
   .btn-func {
     margin-right: 65%;
-    display: flex;
+    margin-left: -5px;
+    display: inline-flex;
     flex-direction: row;
     padding: 0 auto;
     justify-self: start;
+    height: 71px;
+    width: 54%;
   }
 
   .form-control {
@@ -150,7 +155,7 @@ header img {
   }
 
   .header-display {
-    display: grid;
+    display: flex;
     grid-template-columns: none;
   }
 }
@@ -165,10 +170,12 @@ header img {
   .botao {
     width: 30%;
     align-self: center;
+    margin-top: 20px;
+    margin-bottom: -10px;
   }
 
   .nome,
-  .idade, .localizacao {
+  .idade, .localizacao, .informacao {
     max-width: 95%;
     margin-left: 2%;
   }
@@ -179,6 +186,8 @@ header img {
     flex-direction: row;
     padding: 0 auto;
     justify-self: start;
+    height: 71px;
+    width: 38%;
   }
 
   .form-control {

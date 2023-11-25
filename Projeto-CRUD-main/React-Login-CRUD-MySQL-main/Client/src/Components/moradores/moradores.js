@@ -16,6 +16,7 @@ export default function Pessoas(props) {
     nome: props.nome,
     idade: props.idade,
     localizacao: props.localizacao,
+    informacao: props.informacao,
   });
 
   const handleDeleteMorador = () => {
@@ -32,6 +33,7 @@ export default function Pessoas(props) {
         nome={props.nome}
         idade={props.idade}
         localizacao={props.localizacao}
+        informacao={props.informacao}
         listPessoa={props.listPessoa}
         setListPessoa={props.setListPessoa}
         id={props.id} 
@@ -45,6 +47,7 @@ export default function Pessoas(props) {
               <th scope="col">Nome</th>
               <th scope="col">Idade</th>
               <th scope="col">Localização</th>
+              <th scope="col">Informação adicional:</th>
               <th scope="col"></th>
             </tr>
           </thead>
@@ -55,6 +58,7 @@ export default function Pessoas(props) {
               <td>{props.nome}</td>
               <td>{props.idade}</td>
               <td className='quebra'>{props.localizacao}</td>
+              <td className='quebra'>{props.informacao}</td>
               <td className="btn-func">
                 <button
                   type="button"

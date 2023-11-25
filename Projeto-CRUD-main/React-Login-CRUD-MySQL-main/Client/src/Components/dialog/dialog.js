@@ -13,6 +13,7 @@ export default function FormDialog(props) {
         nome: props.nome,
         idade: props.idade,
         localizacao: props.localizacao,
+        informacao: props.informacao,
     });
 
    const handleEditMorador = () => {
@@ -21,6 +22,7 @@ export default function FormDialog(props) {
             nome: editValues.nome,
             idade: editValues.idade,
             localizacao: editValues.localizacao,
+            informacao: editValues.informacao,
             
         });
         handleClose();
@@ -69,6 +71,16 @@ export default function FormDialog(props) {
           id="localizacao"
           label="Localizacao"
           defaultValue={props.localizacao}
+          onChange={handleChangeValues}
+          type="text"
+          fullWidth
+        />
+        <TextField
+          autoFocus
+          margin="dense"
+          id="informacao"
+          label="Informacao"
+          defaultValue={props.informacao}
           onChange={handleChangeValues}
           type="text"
           fullWidth
