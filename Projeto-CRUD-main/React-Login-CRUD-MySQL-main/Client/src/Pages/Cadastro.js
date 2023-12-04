@@ -2,11 +2,18 @@ import "../Styles/Cadastro.css"
 import * as yup from "yup";
 import { ErrorMessage, Formik, Form, Field } from "formik";
 import Axios from "axios";
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FaEye, FaEyeSlash } from 'react-icons/fa'; 
 
 
 function Cadastro({ logado = false }) {
+    const [showPassword, setShowPassword] = React.useState(false)
 
+    const handleTogglePassword = () => {
+        setShowPassword(!showPassword);
+      };
+    
     const handleRegister = (values) => {
         Axios.post("http://localhost:3001/register", {
             email: values.email,
@@ -61,7 +68,7 @@ function Cadastro({ logado = false }) {
                             <ErrorMessage
                                 component="span"
                                 name="email"
-                                className="form-error"
+                                className="form-error-usuario"
                             />
                         </div>
 
@@ -69,8 +76,17 @@ function Cadastro({ logado = false }) {
 
                         <div className="form-group">
                             <label form="email">Senha</label>
-                            <Field name="senha" type='password' className="form-field" placeholder="Senha" />
-
+                            <div className="password-toggle-container">
+                            <Field name="senha" type={showPassword ? 'text' : 'password'}className="form-field" placeholder="Senha" />
+                            <button
+                             type="button"
+                             className="password-toggle-btn"
+                             onClick={handleTogglePassword}
+                            >
+                            {showPassword ? <FaEyeSlash /> : <FaEye />}
+                            </button>
+                            </div>
+                            
                             <ErrorMessage
                                 component="span"
                                 name="senha"
@@ -82,7 +98,16 @@ function Cadastro({ logado = false }) {
 
                         <div className="form-group">
                             <label form="email">Confirme sua senha</label>
-                            <Field name="confirmation" type='password' className="form-field" placeholder="Senha" />
+                            <div className="password-toggle-container">
+                            <Field name="confirmation" type={showPassword ? 'text' : 'password'} className="form-field" placeholder="Senha" />
+                            <button
+              type="button"
+              className="password-toggle-btn"
+              onClick={handleTogglePassword}
+            >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </button>
+            </div>
 
                             <ErrorMessage
                                 component="span"
@@ -93,10 +118,10 @@ function Cadastro({ logado = false }) {
                         <button className="button" type="submit">
                             CADASTRAR
                         </button>
-                    </Form>
-                </Formik>
-            </div>
+                </Form>
+            </Formik>
         </div>
+    </div>
     );
 }
 

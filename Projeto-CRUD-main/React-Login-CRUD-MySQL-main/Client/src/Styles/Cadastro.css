@@ -23,15 +23,12 @@
   left: 0;
   background-color: #5cd860;
   visibility: hidden;
-  -webkit-transform: scaleX(0);
   transform: scaleX(0);
-  -webkit-transition: all 0.3s ease-in-out 0s;
   transition: all 0.3s ease-in-out 0s;
 }
 
-a:hover:before {
+a:hover::before {
   visibility: visible;
-  -webkit-transform: scaleX(1);
   transform: scaleX(1);
   text-decoration: none;
 }
@@ -57,18 +54,61 @@ a:hover {
   margin: 0;
 }
 
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+.password-toggle-container {
+  position: relative;
+  width: 100%;
+}
+
+.password-toggle-btn {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 1.2em;
+  color: black;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
 .form-field {
   background-color: #94ca88;
   color: black;
   font-size: 12pt;
+  padding: 10px;
+  box-sizing: border-box;
+  width: 100%; 
+}
+
+.form-field::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  padding: 10px;
+  right: 15px;
+  transform: translateY(-50%);
+  border-left: 2px solid #5cd860;
+  height: 20px;
 }
 
 .form-group label {
   color: white;
+  margin-bottom: 10px;
 }
 
-.form-error {
-  color: white; 
+.form-error-usuario,
+.form-error,
+.form-error-confirmacao {
+  color: white;
+  font-size: 0.8em;
+  display: block;
 }
 
 .form-field ::placeholder {
@@ -78,6 +118,7 @@ a:hover {
 .button {
   background: #64C967;
   color: white;
+  width: 100%; 
 }
 
 .user-links {
@@ -89,7 +130,7 @@ a:hover {
 
 @media (max-width: 950px) {
   .card-cadastro {
-      width: 50%;
+      width: 70%;
   }
 }
 
@@ -99,6 +140,6 @@ a:hover {
   }
 
   .card-cadastro {
-      width: 50%;
+      width: 80%; 
   }
 }

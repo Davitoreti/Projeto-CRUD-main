@@ -19,9 +19,45 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   margin: 10px 0px;
+}
+
+.password-toggle-container {
+  position: relative; 
+  width: 100%; 
+}
+
+.password-toggle-btn {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 1.2em;
+  color: black;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+.form-field {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 12pt;
+}
+
+.form-field::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  border-left: 2px solid #5cd860;
+  height: 20px;
 }
 
 .form-group label {
@@ -29,9 +65,15 @@
   margin-bottom: 10px;
 }
 
-.form-error {
+.form-error-email {
   display: block;
-  color: #49e150;
+  color: white;
+  font-size: 0.8em;
+}
+
+.form-error-senha {
+  display: block;
+  color: white;
   font-size: 0.8em;
 }
 

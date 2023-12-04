@@ -1,12 +1,17 @@
-import React from 'react';
+import { useState } from 'react';
 import "../Styles/Login.css"
 import * as yup from "yup";
 import { ErrorMessage, Formik, Form, Field } from "formik";
+import { FaEye, FaEyeSlash } from 'react-icons/fa'; 
 import Axios from "axios";
 import { Link } from 'react-router-dom';
 
 function Login({ logado = false }) {
-  const [showPassword, setShowPassword] = React.useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleTogglePassword = () => {
+    setShowPassword(!showPassword);
+  };
 
   const handleLogin = (values) => {
     Axios.post("http://localhost:3001/login", {
@@ -65,7 +70,7 @@ function Login({ logado = false }) {
               <ErrorMessage
                 component="span"
                 name="email"
-                className="form-error"
+                className="form-error-email"
               />
             </div>
 
@@ -73,19 +78,24 @@ function Login({ logado = false }) {
 
             <div className="form-group">
               <label form="email">Senha</label>
-              <Field name="senha" type={showPassword ?'text' : 'password'} className="form-field" placeholder="Senha" />
-              <span className="toggle-password"
-              onClick={() => setShowPassword(!showPassword)}
-              >
-              {showPassword ? '👁️' : '👁️'} 
-              </span>
-
+              <div className="password-toggle-container">
+              <Field name="senha" type={showPassword ? 'text' : 'password'} className="form-field" placeholder="Senha"
+               />
+                <button
+              type="button"
+              className="password-toggle-btn"
+              onClick={handleTogglePassword}
+            >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </button>
+            </div>
+            
               <ErrorMessage
                 component="span"
                 name="senha"
-                className="form-error"
+                className="form-error-senha"
               />
-            </div>
+              </div>
 
             <button className="button" type="submit">
               ENTRAR
