@@ -4,7 +4,7 @@ import { ErrorMessage, Formik, Form, Field } from "formik";
 import Axios from "axios";
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaEye, FaEyeSlash } from 'react-icons/fa'; 
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 
 function Cadastro({ logado = false }) {
@@ -12,8 +12,8 @@ function Cadastro({ logado = false }) {
 
     const handleTogglePassword = () => {
         setShowPassword(!showPassword);
-      };
-    
+    };
+
     const handleRegister = (values) => {
         Axios.post("http://localhost:3001/register", {
             email: values.email,
@@ -41,88 +41,88 @@ function Cadastro({ logado = false }) {
     });
 
 
-    return (
-        <div className="body">
-            <div className="card-cadastro">
-                <div className="user-links">
-                    <div className="user-link-home">
-                        {!logado && <Link to="/">Home</Link>}
-                    </div>
-
-                    <div className="user-link-cad">
-                        {!logado && <Link to="/cadastro">Cadastro</Link>}
-                    </div>
+return (
+    <div className="body">
+        <div className="card-cadastro">
+            <div className="user-links">
+                <div className="user-link-home">
+                    {!logado && <Link to="/">Home</Link>}
                 </div>
-                <h1>CADASTRO</h1>
-                <Formik
-                    initialValues={{}}
-                    onSubmit={handleRegister}
-                    validationSchema={validationsRegister}
-                >
-                    <Form className="login-form">
-                        <div className="form-group">
-                            <label form="email">Usuário</label>
 
-                            <Field name="email" type='email' className="form-field" placeholder="E-mail" />
+                <div className="user-link-cad">
+                    {!logado && <Link to="/cadastro">Cadastro</Link>}
+                </div>
+            </div>
+            <h1>CADASTRO</h1>
+            <Formik
+                initialValues={{}}
+                onSubmit={handleRegister}
+                validationSchema={validationsRegister}
+            >
+                <Form className="login-form">
+                    <div className="form-group">
+                        <label form="email">Usuário</label>
 
-                            <ErrorMessage
-                                component="span"
-                                name="email"
-                                className="form-error-usuario"
-                            />
-                        </div>
+                        <Field name="email" type='email' className="form-field" placeholder="E-mail" />
 
-                        {/*Outro campo*/}
+                        <ErrorMessage
+                            component="span"
+                            name="email"
+                            className="form-error-usuario"
+                        />
+                    </div>
 
-                        <div className="form-group">
-                            <label form="email">Senha</label>
-                            <div className="password-toggle-container">
-                            <Field name="senha" type={showPassword ? 'text' : 'password'}className="form-field" placeholder="Senha" />
+                    {/*Outro campo*/}
+
+                    <div className="form-group">
+                        <label form="email">Senha</label>
+                        <div className="password-container">
+                            <Field name="senha" type={showPassword ? 'text' : 'password'} className="form-field" placeholder="Senha" />
                             <button
-                             type="button"
-                             className="password-toggle-btn"
-                             onClick={handleTogglePassword}
+                                type="button"
+                                className="password-btn"
+                                onClick={handleTogglePassword}
                             >
-                            {showPassword ? <FaEyeSlash /> : <FaEye />}
+                                {showPassword ? <FaEyeSlash /> : <FaEye />}
                             </button>
-                            </div>
-                            
-                            <ErrorMessage
-                                component="span"
-                                name="senha"
-                                className="form-error"
-                            />
                         </div>
 
-                        {/*Confirmação*/}
+                        <ErrorMessage
+                            component="span"
+                            name="senha"
+                            className="form-error"
+                        />
+                    </div>
 
-                        <div className="form-group">
-                            <label form="email">Confirme sua senha</label>
-                            <div className="password-toggle-container">
+                    {/*Confirmação*/}
+
+                    <div className="form-group">
+                        <label form="email">Confirme sua senha</label>
+                        <div className="password-container">
                             <Field name="confirmation" type={showPassword ? 'text' : 'password'} className="form-field" placeholder="Senha" />
                             <button
-              type="button"
-              className="password-toggle-btn"
-              onClick={handleTogglePassword}
-            >
-                {showPassword ? <FaEyeSlash /> : <FaEye />}
-            </button>
-            </div>
-
-                            <ErrorMessage
-                                component="span"
-                                name="confirmation"
-                                className="form-error"
-                            />
+                                type="button"
+                                className="password-btn"
+                                onClick={handleTogglePassword}
+                            >
+                                {showPassword ? <FaEyeSlash /> : <FaEye />}
+                            </button>
                         </div>
-                        <button className="button" type="submit">
-                            CADASTRAR
-                        </button>
+
+                        <ErrorMessage
+                            component="span"
+                            name="confirmation"
+                            className="form-error"
+                        />
+                    </div>
+                    <button className="button" type="submit">
+                        CADASTRAR
+                    </button>
                 </Form>
             </Formik>
         </div>
     </div>
-    );
+  );
 }
 
 export default Cadastro;

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import "../Styles/Login.css"
 import * as yup from "yup";
 import { ErrorMessage, Formik, Form, Field } from "formik";
-import { FaEye, FaEyeSlash } from 'react-icons/fa'; 
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import Axios from "axios";
 import { Link } from 'react-router-dom';
 
@@ -42,7 +42,6 @@ function Login({ logado = false }) {
       .required("A senha é obrigatória"),
   });
 
-
   return (
     <div className="body">
       <div className="card-login">
@@ -78,24 +77,24 @@ function Login({ logado = false }) {
 
             <div className="form-group">
               <label form="email">Senha</label>
-              <div className="password-toggle-container">
-              <Field name="senha" type={showPassword ? 'text' : 'password'} className="form-field" placeholder="Senha"
-               />
+              <div className="password-container">
+                <Field name="senha" type={showPassword ? 'text' : 'password'} className="form-field" placeholder="Senha"
+                />
                 <button
-              type="button"
-              className="password-toggle-btn"
-              onClick={handleTogglePassword}
-            >
-                {showPassword ? <FaEyeSlash /> : <FaEye />}
-            </button>
-            </div>
-            
+                  type="button"
+                  className="password-btn"
+                  onClick={handleTogglePassword}
+                >
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                </button>
+              </div>
+
               <ErrorMessage
                 component="span"
                 name="senha"
                 className="form-error-senha"
               />
-              </div>
+            </div>
 
             <button className="button" type="submit">
               ENTRAR

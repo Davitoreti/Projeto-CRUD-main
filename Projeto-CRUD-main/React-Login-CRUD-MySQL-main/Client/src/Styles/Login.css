@@ -24,7 +24,7 @@
   margin: 10px 0px;
 }
 
-.password-toggle-container {
+.password-container {
   position: relative; 
   width: 100%; 
 }
@@ -49,17 +49,7 @@
   padding: 15px;
   font-size: 12pt;
 }
-
-.form-field::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  right: 15px;
-  transform: translateY(-50%);
-  border-left: 2px solid #5cd860;
-  height: 20px;
-}
-
+a
 .form-group label {
   color: #429a2cde;
   margin-bottom: 10px;
