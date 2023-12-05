@@ -90,6 +90,7 @@ export default function HomeCrud() {
       </header>
 
       <div className="inserts">
+        <h2>Para cadastrar um morador, preencha os campos abaixo!</h2>
         <input
           type="text"
           name="nome"

@@ -28,6 +28,16 @@ header img {
   grid-template-columns: 1fr 2fr;
 }
 
+h2 {
+  font-size: 1.5em;
+  margin-top: 0.83em;
+  margin-bottom: 0.83em;
+  text-align: center;
+  font-weight: bolder;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+ }
+
 .inserts {
   display: grid;
   height: max-content;
