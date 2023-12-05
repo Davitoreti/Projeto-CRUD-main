@@ -14,13 +14,12 @@ header img {
 .scroll {
   text-decoration: none;
   color: white;
-  background-color: #55E629;
+  background-color: #45A44A;
   padding: 11px;
   position: fixed;
   right: 6px;
   bottom: 10px;
   border-radius: 20%;
-  box-shadow: 3px 3px 10px #39991C;
   border: none; 
   border-radius: 100%;
 }
@@ -57,14 +56,18 @@ header img {
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
-  background-color: #0fa301;
+  background-color: #45A44A;
   border: 1px solid transparent;
   padding: .375rem .75rem;
   font-size: 1rem;
   margin-left: 5px;
-  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
   border-radius: 5px;
   border: none; 
+}
+
+.search-input:hover,
+.exit:hover {
+ background-color: #43ce4a;
 }
 
 .search input {
@@ -97,7 +100,7 @@ header img {
 .del {
   max-width: 100%;
   margin-left: 10px;
-  background-color: #55E629;
+  background-color: #45A44A;
   border: none;
 }
 
@@ -107,16 +110,21 @@ header img {
   margin-right: 5%;
 }
 
-.edit {
+.edit, .del {
   margin-left: 10%;
-  background-color: #55E629;
+  background-color: #45A44A;
   border-radius: 20%;
 }
 
+.edit,
 .del {
-  margin-left: 10%;
-  background-color: #55E629;
-  border-radius: 20%;
+ transition: background-color 0.5s ease;
+}
+
+.edit:hover,
+.del:hover,
+.botao:hover {
+ background-color: #43ce4a; 
 }
 
 @media(max-width: 756px) {

@@ -85,9 +85,8 @@ a:hover {
   padding: 10px;
   box-sizing: border-box;
   width: 100%; 
+  resize: none;
 }
-
-
 
 .form-group label {
   color: white;

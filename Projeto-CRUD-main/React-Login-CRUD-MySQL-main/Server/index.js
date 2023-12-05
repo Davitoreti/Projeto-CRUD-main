@@ -75,7 +75,8 @@ app.post("/login", (req, res) => {
 });
 
 
-// Configs do CRUD
+// Configurações do CRUD
+
 app.post("/insert", (req, res) => {
   const { nome } = req.body;
   const { idade } = req.body;

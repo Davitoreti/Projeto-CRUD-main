@@ -9,10 +9,17 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 function Cadastro({ logado = false }) {
     const [showPassword, setShowPassword] = React.useState(false)
+    const [showSenha, setShowSenha] = React.useState(false)
 
-    const handleTogglePassword = () => {
+    const handlePassword = () => {
         setShowPassword(!showPassword);
     };
+
+    const handleSenha = () => {
+        setShowSenha(!showSenha);
+    };
+
+
 
     const handleRegister = (values) => {
         Axios.post("http://localhost:3001/register", {
@@ -81,7 +88,7 @@ return (
                             <button
                                 type="button"
                                 className="password-btn"
-                                onClick={handleTogglePassword}
+                                onClick={handlePassword}
                             >
                                 {showPassword ? <FaEyeSlash /> : <FaEye />}
                             </button>
@@ -99,13 +106,13 @@ return (
                     <div className="form-group">
                         <label form="email">Confirme sua senha</label>
                         <div className="password-container">
-                            <Field name="confirmation" type={showPassword ? 'text' : 'password'} className="form-field" placeholder="Senha" />
+                            <Field name="confirmation" type={showSenha ? 'text' : 'password'} className="form-field" placeholder="Senha" />
                             <button
                                 type="button"
                                 className="password-btn"
-                                onClick={handleTogglePassword}
+                                onClick={handleSenha}
                             >
-                                {showPassword ? <FaEyeSlash /> : <FaEye />}
+                                {showSenha ? <FaEyeSlash /> : <FaEye />}
                             </button>
                         </div>
 
