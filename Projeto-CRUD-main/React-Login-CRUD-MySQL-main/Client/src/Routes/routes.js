@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom"
-
 import Login from "../Pages/Login"
 import Cadastro from "../Pages/Cadastro";
 import Crud from '../Pages/Crud'
